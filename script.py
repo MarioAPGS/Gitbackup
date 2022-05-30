@@ -1,6 +1,6 @@
 import os
 
-CHUNK_SIZE = 100000000
+CHUNK_SIZE = 80000000
 current_dir = os.path.dirname(os.path.abspath(__file__))
 file = "video.mp4"
 
@@ -12,7 +12,7 @@ chunk = 0
 while byte:
 
     # Open a temporary file and write a chunk of bytes
-    fileN = current_dir + "\\chunk_" + str(chunk) + "_" + file
+    fileN = current_dir + "\\chunk" + str(chunk) + "_" + file
     fileT = open(fileN, "wb")
     fileT.write(byte)
     fileT.close()
