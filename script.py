@@ -1,4 +1,5 @@
 import os
+import sys
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -69,6 +70,11 @@ def directory_merge(folder):
         print(key + " -> " + str(dictionary[key]))
         file_merge(current_dir, key, dictionary[key])
 
-
-directory_split(current_dir)
-#directory_merge(current_dir)
+if len(sys.argv) > 0 and sys.argv[1] == "split":
+    directory_split(current_dir)
+elif len(sys.argv) > 0 and sys.argv[1] == "merge":
+    directory_merge(current_dir)
+else:
+    print('''Send 1 agument. 
+     split - Separete all files greater than 1Gb inside of the tree in the current folder
+     merge - combine all chink files inside of the tree in the current folder''')
